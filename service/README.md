@@ -31,7 +31,7 @@ This will take a while.
 
 Build Administrative Boundaries
 
-This currently depends on the osmgadm[https://github.com/bussed/osmgadm] project.
+This currently depends on the [osmgadm](https://github.com/bussed/osmgadm) project.
 
 Clone osmgdam with `git clone https://github.com/bussed/osmgadm.git`.
 
