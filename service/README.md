@@ -2,7 +2,11 @@
 
 Service allows you to maintain a copy of OSM and build a hierachical tree of administrative boundaries from it.
 
+##OSM Planet Download
+
 First start downloading the lastest planet snapshot from http://planet.osm.org/pbf/planet-latest.osm.pbf. Will take a while - it's around 30GB.
+
+##Packages
 
 You'll need to install the following packages:
 
@@ -13,7 +17,7 @@ You'll need to install the following packages:
 * ant
 * git
 
-Database for OSM
+##Database for OSM
 
     createdb *name*
     psql -d *name* -c 'CREATE EXTENSION postgis; CREATE EXTENSION hstore;'
@@ -23,19 +27,23 @@ Database for OSM
     psql -d *name* -f /path/to/pgsnapshot_schema_0.6_linestring.sql
     psql -d *name* -f /path/to/pgsnapshot_schema_0.6.sql
 
-Populate Database
+##Populate Database
 
-Once the planet file has downloaded you can populate your database - `osmosis --read-pbf file=/path/to/planet-latest.osm.pbf --tf accept-relations boundary=administrative --used-way --used-node --write-pgsql database=*name* user=*name*`
+Once the planet file has downloaded you can populate your database, done via the osmosis command.
+
+For optimal performance it's recommended you add the following to `~/.osmosis`:
+
+    JAVACMD_OPTIONS="-server -Xmx4G"
+
+You can then run osmosis, e.g., `osmosis --read-pbf file=/path/to/planet-latest.osm.pbf --tf accept-relations boundary=administrative --used-way --used-node --write-pgsql database=*name* user=*name*`
 
 This will take a while.
 
-Build Administrative Boundaries
+##Build Administrative Boundaries
 
 This currently depends on the [osmgadm](https://github.com/bussed/osmgadm) project.
 
 Clone osmgdam with `git clone https://github.com/bussed/osmgadm.git`.
-
-We've already covered some of osmgadm's installation.
 
 cd into src and run ant.
 
