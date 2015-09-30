@@ -1,0 +1,136 @@
+find_header: checking for protobuf-c/protobuf-c.h... -------------------- yes
+
+"clang -o conftest -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L/opt/boxen/homebrew/lib -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
+ld: warning: directory not found for option '-L/opt/local/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -E -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <protobuf-c/protobuf-c.h>
+/* end */
+
+--------------------
+
+find_header: checking for zlib.h... -------------------- yes
+
+"clang -E -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <zlib.h>
+/* end */
+
+--------------------
+
+find_library: checking for protobuf_c_message_unpack() in -lprotobuf-c... -------------------- yes
+
+"clang -o conftest -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L/opt/boxen/homebrew/lib -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation -lprotobuf-c  -lpthread -lgmp -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'protobuf_c_message_unpack'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))protobuf_c_message_unpack; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))protobuf_c_message_unpack; return 0; }
+/* end */
+
+"clang -o conftest -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L/opt/boxen/homebrew/lib -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation -lprotobuf-c  -lpthread -lgmp -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'protobuf_c_message_unpack' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { protobuf_c_message_unpack(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { protobuf_c_message_unpack(); return 0; }
+/* end */
+
+--------------------
+
+find_library: checking for inflate() in -lz... -------------------- yes
+
+"clang -o conftest -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L/opt/boxen/homebrew/lib -fstack-protector -L/usr/local/lib    -lprotobuf-c  -lruby-static -framework CoreFoundation -lz -lprotobuf-c  -lpthread -lgmp -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'inflate'; did you mean 'inline'?
+int t(void) { void ((*volatile p)()); p = (void ((*)()))inflate; return 0; }
+                                                        ^~~~~~~
+                                                        inline
+conftest.c:13:57: error: expected expression
+2 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))inflate; return 0; }
+/* end */
+
+"clang -o conftest -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L/opt/boxen/homebrew/lib -fstack-protector -L/usr/local/lib    -lprotobuf-c  -lruby-static -framework CoreFoundation -lz -lprotobuf-c  -lpthread -lgmp -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'inflate' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { inflate(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { inflate(); return 0; }
+/* end */
+
+--------------------
+

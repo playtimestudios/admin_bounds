@@ -1,0 +1,47 @@
+have_header: checking for proj_api.h... -------------------- yes
+
+"clang -o conftest -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/boxen/rbenv/versions/2.2.2/lib -L/usr/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L/opt/boxen/homebrew/lib -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -E -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <proj_api.h>
+/* end */
+
+--------------------
+
+have_func: checking for pj_init_plus() in proj_api.h... -------------------- yes
+
+"clang -o conftest -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/opt/boxen/rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/usr/local/include -I/usr/include -I/opt/boxen/rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/opt/boxen/homebrew/include -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/boxen/rbenv/versions/2.2.2/lib -L/usr/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L. -L/opt/boxen/rbenv/versions/2.2.2/lib -L/opt/boxen/homebrew/lib -fstack-protector -L/usr/local/lib     -lproj -lruby-static -framework CoreFoundation  -lproj -lpthread -lgmp -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <proj_api.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))pj_init_plus; return 0; }
+/* end */
+
+--------------------
+

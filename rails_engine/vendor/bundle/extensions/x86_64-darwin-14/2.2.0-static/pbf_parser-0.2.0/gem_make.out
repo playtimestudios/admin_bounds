@@ -1,0 +1,22 @@
+/opt/boxen/rbenv/versions/2.2.2/bin/ruby -r ./siteconf20150922-11826-sjetja.rb extconf.rb 
+checking for protobuf-c/protobuf-c.h... yes
+checking for zlib.h... yes
+checking for protobuf_c_message_unpack() in -lprotobuf-c... yes
+checking for inflate() in -lz... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling fileformat.pb-c.c
+compiling osmformat.pb-c.c
+compiling pbf_parser.c
+pbf_parser.c:502:14: warning: enumeration value '_OSMPBF__RELATION__MEMBER_TYPE_IS_INT_SIZE' not handled in switch [-Wswitch]
+      switch(relation->types[k])
+             ^
+1 warning generated.
+linking shared-object pbf_parser/pbf_parser.bundle
+ld: warning: directory not found for option '-L/opt/local/lib'
+
+make "DESTDIR=" install
+/opt/boxen/homebrew/bin/ginstall -c -m 0755 pbf_parser.bundle ./.gem.20150922-11826-1nxibhh/pbf_parser
