@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = AdminBounds::VERSION
   s.authors     = ["Rick Jones"]
   s.email       = ["rick.jones@playtimestudios.com"]
-  s.homepage    = "https://github.com/playtimestudios/admin_bounds"
+  s.homepage    = "https://github.com/playtimestudios/admin_bounds/rails_engine"
   s.summary     = "Administration boundaries from OSM"
   s.description = "Downloads OSM data and creates hierarchical table for administrative boundaries."
   s.license     = "MIT"
